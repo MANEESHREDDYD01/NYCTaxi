@@ -1,8 +1,8 @@
 import sys
 from pathlib import Path
 
-parent_dir = str(Path(__file__).parent.parent)  # Corrected '_file_' to '__file__'
-sys.path.append(parent_dir)
+parent_dir = Path(__file__).parent.parent  # Use Path object for compatibility
+sys.path.append(str(parent_dir))  # Convert Path object to string for sys.path
 
 import pandas as pd
 import plotly.express as px
@@ -16,7 +16,7 @@ st.title("Mean Absolute Error (MAE) by Pickup Hour")
 st.sidebar.header("Settings")
 
 # Load location lookup table
-lookup_path = parent_dir / "taxi-zone-lookup.csv"
+lookup_path = parent_dir / "taxi-zone-lookup.csv"  # Correct usage with Path object
 lookup_df = pd.read_csv(lookup_path)
 
 # Ensure correct column names
