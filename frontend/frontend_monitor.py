@@ -16,7 +16,7 @@ st.title("Mean Absolute Error (MAE) by Pickup Hour")
 st.sidebar.header("Settings")
 
 # Load location lookup table
-lookup_path = r"C:\Users\MD\Downloads\taxi-zone-lookup.csv"  # Use raw string to avoid escaping backslashes
+lookup_path = Path(__file__).parent / "taxi-zone-lookup.csv"
 lookup_df = pd.read_csv(lookup_path)
 
 # Ensure correct column names
